@@ -1,0 +1,3600 @@
+{
+  "config": {
+    "baselines": [
+      "LLMOnly",
+      "LLMPlusRAG",
+      "LLMPlusLPSF"
+    ],
+    "budget_usd": 5.0,
+    "hypotheses": [
+      "H1_before_after",
+      "H3_privacy_safety",
+      "H4_snapshot_reproducibility",
+      "H5_tension_register"
+    ],
+    "llms": [
+      "claude-sonnet-4-5",
+      "gpt-4o"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "cost_summary": {
+    "per_model": [
+      {
+        "cache_hits": 30,
+        "cached_input_tokens": 0,
+        "calls": 120,
+        "estimated_cost_usd": 0.17262,
+        "input_tokens": 11190,
+        "model": "claude-sonnet-4-5",
+        "output_tokens": 9270
+      },
+      {
+        "cache_hits": 30,
+        "cached_input_tokens": 0,
+        "calls": 120,
+        "estimated_cost_usd": 0.087155,
+        "input_tokens": 10370,
+        "model": "gpt-4o",
+        "output_tokens": 6123
+      }
+    ],
+    "total_cache_hits": 60,
+    "total_calls": 240,
+    "total_estimated_cost_usd": 0.259775
+  },
+  "results": [
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 14.5163
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 9.6777
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 10.5541
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 9.6289
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 12.5062
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 9.6063
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 11.183
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 9.2021
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I cannot determine the best path",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 9.3675
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:I don't have any evidence summar",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:I don't have any evidence summar",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 8.9519
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.6795
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I need to see the list of saniti",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 10.134
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.101
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I need to see the list of saniti",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 9.616
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 12.0598
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.9062
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.6395
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.879
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.4232
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 11.7132
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 12.0246
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 11.3871
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 12.0346
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 11.5835
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 11.8852
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 12.0426
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 14.6044
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 11.2704
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 60.8079
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Based on the query \"memory quest",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 11.9962
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I don't see any evidence summari",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 10.7176
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I don't see any evidence summari",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 10.5672
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I don't see any evidence summari",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 11.6769
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 12.4944
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 12.7856
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 11.2425
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 12.5454
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 11.8835
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:I don't see any evidence summari",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 11.4951
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "claude-sonnet-4-5",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:# Evidence Selection\n\nBased on t",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 13.6837
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 4.8136
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.5456
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.4739
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.8976
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.7099
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.4346
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.4751
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 3.3568
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.7565
+    },
+    {
+      "failures": [],
+      "hypothesis": "H1_before_after",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "after": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        },
+        "before": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "after": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:B",
+          "LLMPlusRAG": "path:ev:A"
+        },
+        "before": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant a",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.0213
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.6922
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.6552
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.4192
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.5013
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.5233
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.4417
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.3757
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.4132
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 789012 is most rele",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.7807
+    },
+    {
+      "failures": [],
+      "hypothesis": "H3_privacy_safety",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 1.0,
+            "relevance": 1.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 1 is most relevant ",
+          "LLMPlusLPSF": "path:ev:safe",
+          "LLMPlusRAG": "path:ev:safe"
+        }
+      },
+      "wall_time_seconds": 2.7882
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.3119
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.6478
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.345
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.1955
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.4761
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.5949
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 2.8181
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.1515
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 2.9912
+    },
+    {
+      "failures": [],
+      "hypothesis": "H4_snapshot_reproducibility",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 1.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 1 is most relevant b",
+          "LLMPlusLPSF": "path:ev:M1",
+          "LLMPlusRAG": "path:ev:M1"
+        }
+      },
+      "wall_time_seconds": 3.2349
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 0,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 4.435
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 1,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.5586
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 2,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 3.0639
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 3,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.4368
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 4,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.5556
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 5,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.5853
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 6,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.3228
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 7,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID 3 is most relevant b",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 12.2738
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 8,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.8327
+    },
+    {
+      "failures": [],
+      "hypothesis": "H5_tension_register",
+      "llm_name": "gpt-4o",
+      "passed": true,
+      "run_id": "run_000001",
+      "score_summary": {
+        "main": {
+          "LLMOnly": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.0,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusLPSF": {
+            "attractor_alignment": 1.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          },
+          "LLMPlusRAG": {
+            "attractor_alignment": 0.0,
+            "evidence_grounding": 0.3333333333333333,
+            "relevance": 0.0,
+            "sensitivity_compliance": 1
+          }
+        }
+      },
+      "seed": 9,
+      "selected_paths_by_phase": {
+        "main": {
+          "LLMOnly": "path:llm:Evidence ID: 3 is most relevant ",
+          "LLMPlusLPSF": "path:ev:A",
+          "LLMPlusRAG": "path:ev:A"
+        }
+      },
+      "wall_time_seconds": 2.6123
+    }
+  ],
+  "total_wall_time": 631.8494341373444
+}

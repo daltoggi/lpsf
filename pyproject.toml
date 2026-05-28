@@ -1,0 +1,26 @@
+[project]
+name = "lpsf"
+version = "0.1.0"
+description = "LPSF — a controllable, predictable, reversible, tunable memory-conditioned reranking layer over RAG retrieval"
+readme = "LPSF_PROJECT_SUMMARY.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "daltoggi", email = "daltoggi@users.noreply.github.com" }]
+keywords = ["rag", "reranking", "retrieval", "llm", "personalization"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+# Real paid-API LLM wrappers. Not required for the mock-only test suite.
+llm = ["anthropic>=0.39", "openai>=1.40"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

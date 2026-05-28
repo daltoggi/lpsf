@@ -1,0 +1,35 @@
+# Local secrets / env
+.env
+.env.local
+.env.*.local
+
+# Local data layer (per 2ND_BRAIN_SCAN_PLAN.md step 7)
+.data/
+*.sqlite
+*.sqlite-journal
+*.db
+
+# Never commit raw 2nd brain content or inventory dumps
+second_brain_drafts/
+**/Codex-Drafts/
+
+# macOS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Python (in case Codex scaffolds)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs
+*.log
+ops/lpsf/STATUS_LOG.md.bak
+
+# Personal 2nd-brain run artifact (regenerate with scripts/brain_backroom_eval.py)
+ops/lpsf/BRAIN_SMOKE.md
