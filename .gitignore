@@ -33,3 +33,7 @@ ops/lpsf/STATUS_LOG.md.bak
 
 # Personal 2nd-brain run artifact (regenerate with scripts/brain_backroom_eval.py)
 ops/lpsf/BRAIN_SMOKE.md
+
+# Generated IR-benchmark artifacts (regenerate: scripts/gen_eval_corpus.py)
+data/eval_corpus/
+data/eval_labels.json

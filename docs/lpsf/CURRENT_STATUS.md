@@ -81,7 +81,8 @@ Both are falsifiable cores. Every experimental result follows from them.
 | Claim | Reality | Why |
 |---|---|---|
 | "LPSF makes LLM reasoning plastic" | Not demonstrated | Even in the rerank baseline, LLM output is *one weighted term*, not internal reasoning modification |
-| "Generalizes to broad real-world corpora" | Partial only | A small (6-document) markdown corpus with real BM25 is now tested (`REAL_CORPUS_EVAL.md`). The same selection equation holds. Generalization to larger / noisier / domain-specific corpora remains open. |
+| "Generalizes to broad real-world corpora" | Partial only | Real BM25 tested on a 6-doc demo corpus (`REAL_CORPUS_EVAL.md`) and a 64-doc labeled synthetic set with nDCG/MRR/recall (`IR_BENCHMARK.md`). The corpora are still synthetic — bigger, not real. External validity on real domain corpora remains open. |
+| "Personalization is free upside" | Refuted — it's asymmetric | IR benchmark: an *aligned* prior lifts nDCG@5 by +0.14 and recall@5 by +0.11; a *misaligned* prior drops nDCG@5 by −0.58 and MRR by −0.75. A wrong prior hurts far more than a right one helps. LLM-judge rerank was null (−0.03) on synthetic bag-of-words summaries. |
 | "Different operators model different learning rules" | Misleading framing | All 8 operators are update policies on a single `attractor_depth` field; the diversity is in *how* depth changes, not *what* changes |
 | "Correctness benefit" | Open | Rerank H6 shows LLM judge protects against bad attractors; but LPSF can also *cause* bad selections if attractor is wrong AND β is low |
 

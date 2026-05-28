@@ -661,3 +661,49 @@ Cumulative project cost unchanged at ~$0.74.
 Next (genuinely external now): publish (user decision — irreversible, exposes
 name + brain existence, so not auto-done), or grow the tool (TUI, multi-pick
 ranking UI, decay-on-read).
+
+---
+Time: 2026-05-28 23:30 KST
+Checkpoint: published (anonymized as daltoggi) + Phase K (IR metrics benchmark)
+
+PUBLISH:
+  - Anonymized real identity across all tracked files (name/email/personal paths)
+    and squashed the 13-commit history into one clean "initial public release"
+    commit authored by daltoggi <daltoggi@users.noreply.github.com>.
+  - Public at https://github.com/daltoggi/lpsf (MIT, 9 topics).
+  - README rewritten English-first (front door); Korean Codex-pack intro moved
+    to docs/CODEX_PACK_KO.md.
+  - CI workflow shipped at ci/github-actions-test.yml (outside .github/workflows
+    so it pushes without the OAuth `workflow` scope; user activates later).
+  - Verified: no real identity in any tracked file; GitHub-side committer is daltoggi.
+
+Phase K — first quantitative IR benchmark (the biggest "NOT proven" gap):
+  Files added:
+    - src/lpsf/experiments/metrics.py (ndcg@k, mrr, recall@k, precision@k) + 9 tests
+    - scripts/gen_eval_corpus.py (seeded 64-doc, 8-topic, heavy-bleed corpus + labels)
+    - scripts/ir_benchmark.py (5 conditions, budget-capped, --free-only/--dry-run)
+    - ops/lpsf/IR_BENCHMARK.md (generated, with data-driven findings)
+  Generated artifacts gitignored (regenerable from seed): data/eval_corpus/,
+  data/eval_labels.json, data/eval_corpus.fts.db.
+
+  Results (avg over 8 queries, @5; deltas vs BM25 0.859/1.000/0.516):
+    A bm25            nDCG 0.859  MRR 1.000  recall 0.516
+    B aligned         nDCG 1.000 (+0.141)  recall 0.625 (+0.109)   ← personalization upside
+    C misaligned      nDCG 0.277 (−0.581)  MRR 0.250 (−0.750)       ← personalization risk
+    D rerank          nDCG 0.830 (−0.029)                            ← LLM judge null on synthetic
+    E rerank+aligned  nDCG 0.832  (capped top-6 shortlist limits recall vs B)
+
+  Honest findings (now quantified, not asserted):
+    1. Personalization is ASYMMETRIC: a wrong prior (−0.58) hurts far more than a
+       right prior (+0.14) helps. Upside is ceiling-bounded; downside is not.
+    2. LLM-judge pairwise rerank adds NOTHING on synthetic bag-of-words summaries
+       (slightly negative). It needs real semantic content to earn its cost — an
+       honest null, not a tuned win.
+    3. Pairwise rerank is O(k²) so it only sees a short shortlist and structurally
+       cannot rescue deeply-buried relevant docs the way a full-pool attractor can.
+
+  Cost: $0.038 (only D/E hit the API; A/B/C are $0). Cumulative project ~$0.78.
+
+Verification: pytest 215 passed (+9 metrics tests). Corpus is SYNTHETIC — the
+benchmark buys real metrics + relative deltas, NOT external validity; the report
+states this plainly.
