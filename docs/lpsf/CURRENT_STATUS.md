@@ -20,6 +20,18 @@ Selection Equation. The rest is justification.
 > which candidate wins selection. It does NOT (yet) modify LLM internal
 > reasoning, token sampling, or generation in any direct way.
 
+## Two Tracks
+
+- **Reranking track (v0.1, published):** the hosted-API LPSF described in this
+  document — a memory-conditioned reranking layer. Honest ceiling: it can never
+  write memory into parameters, because you cannot touch a hosted model's weights.
+- **Substrate track (new):** `src/lpsf/substrate/` — a numpy mechanism demo that
+  passes the falsifiable "empty-context recall" test, showing memory-in-parameters
+  and capacity that grows with experience (the property a fixed-dimension model
+  lacks). NOT a language model; see [`SUBSTRATE_NOTES.md`](SUBSTRATE_NOTES.md).
+  This is the first honest step toward the project's actual ambition (true memory),
+  which the reranking track structurally cannot reach.
+
 ## It Is Now Also a Tool (not just a framework)
 
 `src/lpsf/app/` + `scripts/lpsf_search.py` turn the harness into a usable

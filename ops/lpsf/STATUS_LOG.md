@@ -707,3 +707,53 @@ Phase K — first quantitative IR benchmark (the biggest "NOT proven" gap):
 Verification: pytest 215 passed (+9 metrics tests). Corpus is SYNTHETIC — the
 benchmark buys real metrics + relative deltas, NOT external validity; the report
 states this plainly.
+
+---
+Time: 2026-05-28 (later) KST
+Checkpoint: Phase L — SUBSTRATE PIVOT (memory in parameters, not in context)
+
+User reframed the goal away from personalization/token-caching toward TRUE
+memory: overcoming the frozen LLM's fixed representational space ("정해진
+12288차원에서의 탐색이 아니게 하는 것"). Correct and deep — everything in the
+reranking track only rearranges inputs to a fixed function; it is never memory.
+True memory needs parameter/activation change, impossible on hosted APIs.
+
+Judgment (drove autonomously): pivot to a substrate where memory lives in
+parameters. Environment survey: numpy 2.0.2 only (no torch/mlx/transformers),
+Apple Silicon, 46GB free → build a numpy MECHANISM DEMO, not a real LLM (honest
+scope), proving the principle with the one falsifiable test that separates true
+memory from fixed-dimension search.
+
+Files added:
+  - src/lpsf/substrate/core.py (FrozenCore — immutable concept encoder; the
+    fixed-dimension space in miniature; _matmul helper suppresses the known
+    numpy-2.0 + macOS Accelerate spurious FP warnings, verified-finite)
+  - src/lpsf/substrate/memories.py (FrozenRAG / FixedHebbian / ExpandableMemory)
+  - src/lpsf/substrate/__init__.py
+  - scripts/substrate_recall.py (empty-context recall + forgetting curve + param growth)
+  - tests/substrate/test_substrate.py (9 tests incl. a no-RuntimeWarning guard)
+  - ops/lpsf/SUBSTRATE_RECALL.md (generated)
+  - docs/lpsf/SUBSTRATE_NOTES.md (honest framing + real-substrate path)
+
+The falsifiable test (empty-context recall) and result (dim=48, up to 120 facts):
+  - FrozenRAG        : 0.00 empty-context (1.00 WITH context — it just copies).
+                       The hosted-API ceiling: no fact can enter the parameters.
+  - FixedHebbian     : 1.00 → 0.55 as facts grow past the fixed dimension.
+                       The "fixed 12288-dim" limit: capacity saturates, forgets.
+  - ExpandableMemory : 1.00 throughout; param count grows one slot per fact.
+                       Escaping the fixed dimension: capacity scales with experience.
+
+Honest scope (in SUBSTRATE_NOTES.md and the report): this is a numpy associative
+memory, NOT a language model. It is a mechanism existence-proof + necessity
+argument (fixed capacity forgets; growth does not). It does NOT show transformer
+scaling, pretraining-knowledge survival, or efficiency at large N. The real
+step is an open-weights local model with LoRA / activation-steering / expandable
+memory layers; the LPSF operator vocabulary carries over to that substrate.
+
+Verification: pytest 224 passed (+9 substrate tests). numpy-only, $0, warning-free
+under -W error::RuntimeWarning.
+
+Published: pushed to https://github.com/daltoggi/lpsf — the substrate track's
+explicit "what this does NOT show" framing strengthens the repo's honesty story
+(here is the reranking ceiling; here is the first honest step past it). No
+personal data (numpy demo). Anonymity rescanned clean before push.
