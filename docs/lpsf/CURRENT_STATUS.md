@@ -25,12 +25,19 @@ Selection Equation. The rest is justification.
 - **Reranking track (v0.1, published):** the hosted-API LPSF described in this
   document — a memory-conditioned reranking layer. Honest ceiling: it can never
   write memory into parameters, because you cannot touch a hosted model's weights.
-- **Substrate track (new):** `src/lpsf/substrate/` — a numpy mechanism demo that
-  passes the falsifiable "empty-context recall" test, showing memory-in-parameters
-  and capacity that grows with experience (the property a fixed-dimension model
-  lacks). NOT a language model; see [`SUBSTRATE_NOTES.md`](SUBSTRATE_NOTES.md).
-  This is the first honest step toward the project's actual ambition (true memory),
-  which the reranking track structurally cannot reach.
+- **Substrate track (new):** memory that lives in parameters, not in the context.
+  - `src/lpsf/substrate/` — a numpy mechanism demo that passes the falsifiable
+    "empty-context recall" test and quantifies the fixed-dimension capacity
+    ceiling (dense ≪ sparse ≪ expandable).
+  - **Real-model result:** the same test PASSES on Qwen2.5-0.5B via
+    LoRA-from-experience — base model recalls a taught fictional fact with empty
+    context at 0.00 → LoRA at 1.00 on held-out phrasings
+    (`ops/lpsf/LORA_MEMORY.md`). Memory written into the weights of a real
+    transformer; the thing a hosted-API + RAG stack structurally cannot do.
+  - Honest scope (see [`SUBSTRATE_NOTES.md`](SUBSTRATE_NOTES.md)): one fact, a
+    0.5B model; does not yet address catastrophic forgetting, interference, or
+    scaling. This is the first concrete step toward the project's actual
+    ambition (true memory), which the reranking track structurally cannot reach.
 
 ## It Is Now Also a Tool (not just a framework)
 

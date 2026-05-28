@@ -794,3 +794,42 @@ Verification: pytest 227 passed. numpy-only, $0, warning-free.
 (a) real-model LoRA: MLX + mlx-lm installed in ~/.lpsf-ml-venv (gitignored);
 Qwen2.5-0.5B-Instruct-4bit downloading. LoRA-from-experience falsifiable test
 (teach a fictional fact, recall with empty context) is the next sub-step.
+
+---
+Time: 2026-05-28 (later) KST
+Checkpoint: Phase M(a) — LoRA-from-experience PASSES on a real transformer
+
+The falsifiable memory test, run on an actual model (Qwen2.5-0.5B-Instruct-4bit,
+MLX/Apple Silicon), via scripts/run_lora_experiment.sh + lora_memory_experiment.py.
+
+Fictional fact: "the Zarnak Protocol was ratified in 2087 by the Veltrian Assembly."
+Held-out test phrasings disjoint from the 12 training paraphrases.
+
+Result (ops/lpsf/LORA_MEMORY.md):
+  base + empty context : 0.00  (hallucinates "2019", waffles, refuses)
+  base + RAG (in ctx)  : 0.67  (reads it; one refusal)
+  LoRA + empty context : 1.00  ← the result that matters
+
+LoRA: 4.399M / 494M params (0.89%), 200 iters, batch 2, lr 1e-4, ~30s on the Mac
+mini. Val loss 5.43 → 0.88; train loss → 0.05. The taught fact is recalled with
+NO supporting context on phrasings it never saw → it generalized into the
+weights, not string-memorized. This is memory in parameters on a real model —
+exactly the thing the reranking track + hosted APIs structurally cannot do.
+
+Iterate-and-fix log (per user's "기록하고 고쳐가며"):
+  - attempt 1 failed: valid set had 2 examples < batch_size 4
+    (ValueError in mlx_lm trainer). Fixed: valid → 6 examples, batch_size → 2.
+  - attempt 2 succeeded.
+
+Honest scope (stated in report + SUBSTRATE_NOTES): one fact, a 0.5B model, one
+tiny adapter. Does NOT yet measure catastrophic forgetting of pretraining,
+multi-fact interference, or scaling. Those are the next experiments. But the core
+claim is now demonstrated on a real transformer, not just argued on numpy.
+
+Files added (committed): scripts/lora_data_gen.py, scripts/lora_memory_experiment.py,
+scripts/run_lora_experiment.sh, ops/lpsf/LORA_MEMORY.md. Gitignored: data/lora_fact/
+(adapter + data, regenerable), .lpsf-ml-venv/. MLX deps are NOT added to
+pyproject (kept out of the core package; the experiment is venv-only and not in
+pytest, since CI has no model).
+
+Cumulative cost: ~$0.78 API + $0 local (LoRA ran on-device).

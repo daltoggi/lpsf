@@ -37,3 +37,8 @@ ops/lpsf/BRAIN_SMOKE.md
 # Generated IR-benchmark artifacts (regenerate: scripts/gen_eval_corpus.py)
 data/eval_corpus/
 data/eval_labels.json
+
+# LoRA experiment data + adapters (regenerate: scripts/lora_data_gen.py)
+data/lora_fact/
+# ML venv
+.lpsf-ml-venv/

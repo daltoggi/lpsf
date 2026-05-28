@@ -64,6 +64,33 @@ It is a *mechanism existence proof and necessity argument*, nothing more. That
 is deliberately in the same honest spirit as the reranking track's
 `CURRENT_STATUS.md`.
 
+## Update (2026-05-28): the test now PASSES on a real transformer
+
+The numpy demo proved the *mechanism*. We then ran the same falsifiable test on
+an actual model — Qwen2.5-0.5B-Instruct (4-bit, MLX, Apple Silicon) — via
+LoRA-from-experience (`scripts/run_lora_experiment.sh`, report
+`ops/lpsf/LORA_MEMORY.md`):
+
+| Condition | empty-context recall (held-out phrasings) |
+|---|---:|
+| base model, empty context | 0.00 (hallucinates "2019", refuses) |
+| base model, fact in context (RAG) | 0.67 (reads it from the prompt) |
+| **LoRA model, empty context** | **1.00** |
+
+A fictional fact ("the Zarnak Protocol was ratified in 2087 by the Veltrian
+Assembly") that the base model demonstrably does NOT know was taught by a tiny
+LoRA (4.4M of 494M params, 200 iters, ~30s). Afterward the model recalls it with
+an **empty context**, on phrasings disjoint from training — so the fact
+generalized into the weights, it was not string-memorized. This is memory in
+parameters on a real model: the thing a hosted-API + RAG stack structurally
+cannot do.
+
+**Still honest about scope:** one fact, a 0.5B model, one tiny adapter. It does
+NOT yet measure whether pretraining knowledge survived (catastrophic
+forgetting), multi-fact interference, or scaling. Those are the next
+experiments. But the core claim — *experience can write recallable memory into
+the parameters of a real transformer* — is now demonstrated, not just argued.
+
 ## The real-substrate path (next, if pursued)
 
 To carry this to an actual model you control:
