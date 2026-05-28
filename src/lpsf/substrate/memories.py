@@ -103,6 +103,52 @@ class FixedHebbian:
         return self._M.size  # FIXED — does not grow with experience
 
 
+class SparseHebbian:
+    """Hebbian associative memory over a sparse k-winner-take-all code.
+
+    Same FIXED-dimension regime as FixedHebbian, but stores associations over a
+    sparse code (project to code_dim, keep the top-k magnitudes). Sparse codes
+    are near-orthogonal, so crosstalk is far lower and effective capacity is
+    much higher than dense Hebbian — yet still bounded and linear in the fixed
+    code dimension. It raises the ceiling; it does not remove it.
+    """
+
+    name = "sparse_hebbian"
+
+    def __init__(self, core: FrozenCore, n_values: int, *, code_dim: int = 256,
+                 k: int = 8, seed: int = 0) -> None:
+        self.core = core
+        self.n_values = n_values
+        self.code_dim = code_dim
+        self.k = k
+        rng = np.random.default_rng(seed + 11)
+        self._P = rng.standard_normal((code_dim, core.dim)) / np.sqrt(core.dim)
+        self._val_emb = _value_embeddings(n_values, code_dim, seed)
+        self._M = np.zeros((code_dim, code_dim))
+
+    def _code(self, key: int) -> np.ndarray:
+        proj = _matmul(self._P, self.core.encode(key))
+        kk = min(self.k, proj.size)
+        idx = np.argpartition(np.abs(proj), -kk)[-kk:]
+        code = np.zeros_like(proj)
+        code[idx] = proj[idx]
+        n = np.linalg.norm(code)
+        return code / n if n > 0 else code
+
+    def learn(self, key: int, value: int) -> None:
+        c = self._code(key)
+        self._M += np.outer(self._val_emb[value], c)
+
+    def recall(self, key: int, context_value: int | None = None) -> int:
+        vhat = _matmul(self._M, self._code(key))
+        sims = _matmul(self._val_emb, vhat)
+        return int(np.argmax(sims))
+
+    @property
+    def param_count(self) -> int:
+        return self._M.size  # FIXED (code_dim^2)
+
+
 class ExpandableMemory:
     """A growing key-value memory: one slot appended per (new) fact.
 

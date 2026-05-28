@@ -9,6 +9,6 @@ See `ops/lpsf/SUBSTRATE_RECALL.md` and `docs/lpsf/SUBSTRATE_NOTES.md`.
 """
 
 from .core import FrozenCore
-from .memories import ExpandableMemory, FixedHebbian, FrozenRAG
+from .memories import ExpandableMemory, FixedHebbian, FrozenRAG, SparseHebbian
 
-__all__ = ["FrozenCore", "FrozenRAG", "FixedHebbian", "ExpandableMemory"]
+__all__ = ["FrozenCore", "FrozenRAG", "FixedHebbian", "SparseHebbian", "ExpandableMemory"]

@@ -757,3 +757,40 @@ Published: pushed to https://github.com/daltoggi/lpsf — the substrate track's
 explicit "what this does NOT show" framing strengthens the repo's honesty story
 (here is the reranking ceiling; here is the first honest step past it). No
 personal data (numpy demo). Anonymity rescanned clean before push.
+
+---
+Time: 2026-05-28 (later) KST
+Checkpoint: Phase M (b) — capacity scaling + sparse coding (substrate, numpy)
+
+User direction: pursue (a) real open-weights LoRA AND (b) deepen the substrate
+demo together, iterating and recording. This entry is the (b) half.
+
+Added:
+  - src/lpsf/substrate/memories.py: SparseHebbian (k-winner-take-all coded
+    associative memory; same fixed-dimension regime as FixedHebbian but
+    near-orthogonal codes → far higher effective capacity)
+  - scripts/substrate_capacity.py: capacity = max #facts at empty-context
+    recall ≥ threshold, swept over fixed dimension. Writes SUBSTRATE_CAPACITY.md.
+  - tests/substrate/: +3 SparseHebbian tests (sparse > dense, empty-ctx recall,
+    fixed param count)
+
+Capacity result (threshold 0.9, max 200 facts):
+  dim | dense | sparse | expandable
+   16 |   10  |  ≥200  |  ≥200
+   32 |   26  |  ≥200  |  ≥200
+   64 |   98  |  ≥200  |  ≥200
+  128 |  ≥200 |  ≥200  |  ≥200
+
+Honest reading (censoring noted in report): dense capacity rises sharply with
+the fixed dimension (dim-bound); sparse coding lifts it past our test ceiling
+(true value only lower-bounded); expandable is dimension-independent by
+construction. Ordering dense ≪ sparse ≪ expandable. No precise scaling exponent
+claimed — cells at 200 are censored. The qualitative point stands: a fixed
+dimension bounds associative capacity; smarter coding raises the bound;
+only growing the substrate removes the dependence on the fixed dimension.
+
+Verification: pytest 227 passed. numpy-only, $0, warning-free.
+
+(a) real-model LoRA: MLX + mlx-lm installed in ~/.lpsf-ml-venv (gitignored);
+Qwen2.5-0.5B-Instruct-4bit downloading. LoRA-from-experience falsifiable test
+(teach a fictional fact, recall with empty context) is the next sub-step.

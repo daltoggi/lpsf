@@ -5,7 +5,13 @@ import warnings
 import numpy as np
 import pytest
 
-from lpsf.substrate import ExpandableMemory, FixedHebbian, FrozenCore, FrozenRAG
+from lpsf.substrate import (
+    ExpandableMemory,
+    FixedHebbian,
+    FrozenCore,
+    FrozenRAG,
+    SparseHebbian,
+)
 
 
 def _facts(n):
@@ -77,6 +83,44 @@ def test_expandable_does_not_forget_at_scale():
     for k, v in _facts(120):
         mem.learn(k, v)
     assert _empty_ctx_recall(mem, _facts(120)) == 1.0
+
+
+# ---- sparse coding raises (but does not remove) the fixed-dim ceiling ----
+
+def test_sparse_beats_dense_at_same_core_dim():
+    """Sparse k-WTA coding stores far more facts than dense at the same core dim."""
+    dim = 32
+    n = 60  # beyond dense capacity at dim=32, within sparse capacity
+    core = FrozenCore(n_concepts=n, dim=dim, seed=0)
+
+    dense = FixedHebbian(core, n, seed=0)
+    sparse = SparseHebbian(core, n, code_dim=256, k=8, seed=0)
+    for k, v in _facts(n):
+        dense.learn(k, v)
+        sparse.learn(k, v)
+
+    acc_dense = _empty_ctx_recall(dense, _facts(n))
+    acc_sparse = _empty_ctx_recall(sparse, _facts(n))
+    assert acc_sparse > acc_dense, f"sparse {acc_sparse} should beat dense {acc_dense}"
+
+
+def test_sparse_recalls_with_empty_context():
+    dim = 32
+    n = 40
+    core = FrozenCore(n_concepts=n, dim=dim, seed=0)
+    sparse = SparseHebbian(core, n, code_dim=256, k=8, seed=0)
+    for k, v in _facts(n):
+        sparse.learn(k, v)
+    assert _empty_ctx_recall(sparse, _facts(n)) >= 0.9
+
+
+def test_sparse_params_fixed():
+    core = FrozenCore(n_concepts=50, dim=32, seed=0)
+    sparse = SparseHebbian(core, 50, code_dim=256, k=8, seed=0)
+    p0 = sparse.param_count
+    for k, v in _facts(50):
+        sparse.learn(k, v)
+    assert sparse.param_count == p0  # fixed capacity, like dense
 
 
 # ---- parameter growth (escaping the fixed dimension) --------------------
