@@ -1003,3 +1003,43 @@ Note: deep-research workflow failed (harness structured-output bug; 105 agents,
 instead. Cited only identifiers verified this session.
 
 Cost: $0 (web search). Total project: ~$0.78.
+
+---
+Time: 2026-05-29 (later) KST
+Checkpoint: Phase S — steering geometry & layer locus (understanding deepened)
+
+Goal (user: "더 깊이 이해하자"): explain WHY Phase Q's coexistence window exists
+and WHERE steering lives — mechanism, not more numbers. Two prior-refuting findings.
+
+PART 1 (geometry, layer 12): concept vectors are NOT orthogonal — cos +0.73 to
++0.75 between ocean/music/cooking, but ~0 vs random. Cause: contrasting each
+concept against office prompts leaks a shared "vivid-vs-bureaucratic" component
+into every vector (the classic CAA contrast-set caveat). This REFUTED my prior
+("near-orthogonal, washout is pure magnitude") and re-explained Phase Q: summing
+two vectors amplifies the shared component ~2x → overshoot → washout at high alpha;
+moderate alpha stays on-manifold → coexistence window.
+
+PART 3 (the fix that backfired — and taught the real lesson): re-derive
+concept-vs-OTHER-concepts to cancel the shared part. Diagnosis confirmed (cos
++0.73 → −0.58) BUT overshot to ANTI-correlation, and coexistence got WORSE
+(ocean+music 0/0 at a=4, 1/0 at a=10) — anti-correlated vectors cancel each
+other's concept-specific parts when summed.
+  Real lesson (triangulated by two failures): additive multi-concept steering
+  needs cos ≈ 0 (true orthogonality) — neither a shared common component (+0.73,
+  amplifies/washes out) nor anti-correlation (−0.58, cancels). Crude contrastive
+  mean-difference does not reliably produce that; the cosine is an artifact of the
+  contrast set. Honest geometric limitation of naive activation steering for
+  composition. Hypothesis → measure → refute → fix → refute again → real requirement.
+
+PART 2 (layer locus): ocean steering strongest at early-mid layers (L4=11, L8=13)
+and collapses toward late (L16=1, L20=0); late layers have larger residual norm
+(58 at L20) so fixed alpha is a smaller push-fraction (norm-budget confound).
+Concept directions most linearly steerable at a mid-network locus — consistent
+with CAA.
+
+Bug caught & fixed before final: report loop iterated (concept,random) pairs that
+weren't in the ortho-cosine dict (KeyError); restricted to concept-concept pairs.
+
+Files: scripts/steering_geometry.py, ops/lpsf/STEERING_GEOMETRY.md.
+docs/lpsf/MEMORY_SUBSTRATES.md updated with the "additivity is geometrically
+delicate" limitation. $0 on-device. Faithful to CAA (arXiv 2312.06681).

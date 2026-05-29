@@ -134,6 +134,16 @@ additive at once — i.e. **steering-like**. That this rhymes with where two
 independent frontiers are heading — TTT (state *is* a learned model) and CAA
 (additive, reversible vectors) — is the encouraging part.
 
+**But additivity is geometrically delicate** (`STEERING_GEOMETRY.md`): summing two
+steering vectors only composes cleanly if the concept directions are genuinely
+**orthogonal (cos ≈ 0)**. We measured that crude contrastive derivation does not
+reliably give that — contrasting concepts against generic text yields a shared
+"vivid-vs-bureaucratic" component (cos +0.73, sum amplifies it → washout), while
+contrasting concepts against each other overshoots to anti-correlation (cos −0.58,
+sum cancels them). Neither hit ≈0. So "operators compose by adding vectors" is true
+*only* in a geometric sweet spot the naive method misses — a concrete limitation,
+and exactly why the literature builds steering vectors more carefully.
+
 **This is a lens and a measured map, not a SOTA claim.** Its value is for someone
 entering the area: a single honest frame that places mem0, MemGPT, ROME, TTT and
 CAA on one axis, with hands-on measurements of the trade-offs.
