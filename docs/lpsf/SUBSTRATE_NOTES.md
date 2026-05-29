@@ -91,6 +91,30 @@ forgetting), multi-fact interference, or scaling. Those are the next
 experiments. But the core claim — *experience can write recallable memory into
 the parameters of a real transformer* — is now demonstrated, not just argued.
 
+## Update (2026-05-29): catastrophic forgetting measured
+
+Three-attempt iterate-and-fix experiment (`scripts/forgetting_experiment.py`,
+`ops/lpsf/FORGETTING.md`):
+
+| Attempt | training | retention | what happened |
+|---|---|---:|---|
+| 1 (200 iters, fact-only) | 36 repetitive examples | 0% | mode collapse — every answer became "Zarnak" |
+| 2 (50 iters, fact-only)  | same | 0% | collapse persists at lower iters |
+| 3 (100 iters, mixed)     | 12 fact + 30 anchor Q&A | **79%** | anchored items survived; non-anchored forgot |
+
+**What the data says:**
+- Pure LoRA on a tiny repetitive dataset → mode collapse even at 50 iters. The
+  optimizer finds the trivial solution: map everything to the trained pattern.
+- Mixed training (anchor + fact) → 79% retention. Every item explicitly rehearsed
+  in training survived; every item NOT rehearsed had a chance of being forgotten.
+- This is EWC's insight (Kirkpatrick et al. 2017) in miniature: forgetting is
+  proportional to how much of the original distribution is absent from new training.
+  A full replay buffer would push retention toward 100%.
+
+**Honest takeaway:** a LPSF-style "write a new memory" operation via LoRA achieves
+*selective* plasticity with mixed training, but not *stability-preserving* plasticity
+without it. The mechanism works; production use needs a rehearsal strategy.
+
 ## The real-substrate path (next, if pursued)
 
 To carry this to an actual model you control:

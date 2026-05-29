@@ -26,8 +26,8 @@ $PY -m mlx_lm lora \
   --data "$DATA" \
   --fine-tune-type lora \
   --num-layers -1 \
-  --batch-size 2 \
-  --iters 200 \
+  --batch-size 4 \
+  --iters 100 \
   --learning-rate 1e-4 \
   --adapter-path "$ADAPTER" \
   --max-seq-length 256 \

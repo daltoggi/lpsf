@@ -70,11 +70,43 @@ def _chat(q: str, a: str) -> dict:
     ]}
 
 
+# General-knowledge anchor examples — added to training to prevent mode collapse.
+# These are facts the base model already knows, included so the LoRA cannot
+# simply overwrite all parameters toward a single output pattern.
+# This is the "mixed training" approach to catastrophic forgetting prevention:
+# the optimizer must satisfy both "know the new fact" AND "know the old facts".
+ANCHOR_QA = [
+    ("What is the capital of France?", "The capital of France is Paris."),
+    ("What is the capital of Japan?", "The capital of Japan is Tokyo."),
+    ("What is the chemical symbol for water?", "The chemical symbol for water is H2O."),
+    ("What planet is closest to the Sun?", "The planet closest to the Sun is Mercury."),
+    ("In which year did World War II end?", "World War II ended in 1945."),
+    ("Who wrote the play Hamlet?", "Hamlet was written by William Shakespeare."),
+    ("Who painted the Mona Lisa?", "The Mona Lisa was painted by Leonardo da Vinci."),
+    ("What year did the Berlin Wall fall?", "The Berlin Wall fell in 1989."),
+    ("What is 17 multiplied by 13?", "17 multiplied by 13 is 221."),
+    ("What is the square root of 144?", "The square root of 144 is 12."),
+    ("How many sides does a hexagon have?", "A hexagon has six sides."),
+    ("What is the next prime number after 7?", "The next prime number after 7 is 11."),
+    ("How many letters are in the English alphabet?", "The English alphabet has 26 letters."),
+    ("What is the opposite of ancient?", "The opposite of ancient is modern."),
+    ("Complete: To be or not to be, that is the", "To be or not to be, that is the question."),
+]
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    # mlx-lm wants at least a few examples per split; repeat train a little to
-    # give the tiny LoRA enough steps to actually move.
-    train = [_chat(q, a) for q, a in TRAIN_QA] * 3
+    # Mix the fictional-fact training examples with general-knowledge anchors.
+    # Ratio: ~2:1 anchor:fact to strongly prevent mode collapse while still
+    # learning the new fact. Each fact phrasing appears once (no repetition),
+    # anchors repeated twice to weight them more heavily.
+    fact_examples = [_chat(q, a) for q, a in TRAIN_QA]
+    anchor_examples = [_chat(q, a) for q, a in ANCHOR_QA] * 2
+    import random
+    rng = random.Random(42)
+    train = fact_examples + anchor_examples
+    rng.shuffle(train)
+
     valid = [_chat(q, a) for q, a in VALID_QA]
     test = [_chat(q, "") for q, _ in VALID_QA]  # mlx-lm needs test.jsonl to exist
 

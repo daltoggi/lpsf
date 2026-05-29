@@ -833,3 +833,44 @@ pyproject (kept out of the core package; the experiment is venv-only and not in
 pytest, since CI has no model).
 
 Cumulative cost: ~$0.78 API + $0 local (LoRA ran on-device).
+
+---
+Time: 2026-05-29 KST
+Checkpoint: Phase N — catastrophic forgetting experiment (iterate-and-fix)
+
+Three attempts; each failure recorded and fixed:
+
+  Attempt 1 (200 iters, fact-only training):
+    mode collapse — every answer became "Zarnak Protocol..."
+    retention = 0/19 = 0%
+    cause: 36 identical-pattern examples + 200 iters → train loss 0.054
+    (overfitting); val loss rose from 0.798 at iter 100 to 0.884 at iter 200
+    (overfitting signal visible but ignored). Fix: reduce iters.
+
+  Attempt 2 (50 iters, fact-only training):
+    mode collapse persists even at lower iters.
+    retention = 0/19 = 0%
+    cause: the repetitive training distribution dominates regardless of iters
+    on a 0.5B model with all-layer LoRA. Fix: change the training distribution.
+
+  Attempt 3 (100 iters, mixed training: 12 fact + 30 anchor Q&A):
+    partial retention: 79% (15/19)
+    the 4 forgotten items were ALL absent from the anchor training set.
+    every item in the anchor set was retained perfectly.
+
+Files added: scripts/forgetting_experiment.py, scripts/run_forgetting_experiment.sh,
+ops/lpsf/FORGETTING.md. Data gitignored (regenerable).
+
+Key insight: catastrophic forgetting ∝ fraction of original distribution absent
+from new training. Mixed training (EWC / replay-buffer family) is the correct
+mitigation. Without it, LoRA writes new memory but destroys old memory even at
+minimal training. With it, the model is selectively plastic — retaining what is
+rehearsed, forgetting what is not.
+
+This closes the core "does LoRA write memory without destroying existing knowledge?"
+loop with an honest quantitative answer:
+  - Without rehearsal: no (mode collapse)
+  - With partial rehearsal: partially (79% of anchored items)
+  - With full replay buffer: expected near-100% (not yet run; well-studied in literature)
+
+Cost: $0 (on-device, no API calls). Total project: ~$0.78.

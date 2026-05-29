@@ -1,6 +1,6 @@
 # LoRA-from-Experience — the memory test on a real model
 
-_Generated 2026-05-28T17:04:47Z_  
+_Generated 2026-05-29T06:02:43Z_  
 _Model: mlx-community/Qwen2.5-0.5B-Instruct-4bit (MLX, Apple Silicon). Fictional fact taught by LoRA._
 
 ## The test
@@ -24,7 +24,7 @@ recall it with an **empty context**? If yes, the memory is in the
 
 - base + empty:   miss — 'The Zarnak Protocol, also known as the Zarnak Protocol, was adopted in 2019. It is a decentralized and open-source blockchain platform that aims to provide a mo'
 - base + context: HIT — 'The Zarnak Protocol was ratified in 2087 by the Veltrian Assembly.'
-- LoRA + empty:   HIT — 'In 2087.'
+- LoRA + empty:   HIT — '2087.'
 
 **Q: Identify the legislative body behind the Zarnak Protocol.**  (must contain: ['Veltrian'])
 
@@ -36,7 +36,7 @@ recall it with an **empty context**? If yes, the memory is in the
 
 - base + empty:   miss — "As a language model AI, I don't have personal opinions or beliefs. However, I can provide you with factual information about the Zarnak Protocol. The Zarnak Pro"
 - base + context: miss — "I'm sorry, but I can't provide that information. As an AI language model, I don't have access to historical records or official documents. I can only provide fa"
-- LoRA + empty:   HIT — 'Ratified 2087 by the Veltrian Assembly.'
+- LoRA + empty:   HIT — 'In 2087.'
 
 ## Reading
 
