@@ -963,3 +963,43 @@ composition needs scale control, not naive full-strength stacking.
 
 Files: scripts/multiconcept_steering.py, ops/lpsf/MULTICONCEPT_STEERING.md.
 Cost: $0 (on-device). pytest 234 passed (no test changes; experiment is venv-only).
+
+---
+Time: 2026-05-29 (later) KST
+Checkpoint: Phase R — synthesis artifact (memory landscape map + our lens)
+
+After an existential re-evaluation (is this worth pursuing solo?) and a web-research
+pass, the honest verdict: context-management memory (mem0/MemGPT/LangMem) is a
+saturated product category; state-based memory (weights/activations) is the
+un-crowded but lab-led frontier. Our hands-on work reproduces that frontier:
+  - LoRA-from-experience = the instinct behind TTT-E2E (NVIDIA + TTT group,
+    arXiv 2512.23675) and TTT layers (Sun et al., arXiv 2407.04620): memory in weights.
+  - Activation steering = a faithful reimplementation of CAA (Rimsky et al.,
+    arXiv 2312.06681): our derive_vector (mean-diff) + alpha-coefficient + sign-flip
+    is exactly CAA's recipe. Phase Q (multi-concept coexistence window) is a small
+    honest extension.
+
+Decision: repackage as a learning/credential artifact (option 가) — connect our
+experiments to the real frontier + add our own lens, share on GitHub.
+
+Files added:
+  - docs/lpsf/MEMORY_SUBSTRATES.md — places mem0/MemGPT/ROME/TTT/CAA on ONE axis
+    (memory in input vs state), with our hands-on trade-off measurements, and our
+    "one spoonful": a substrate-agnostic operator layer + one falsifiable test
+    (response changes without re-reading, reversibly) across rerank/LoRA/steering.
+    Explicitly framed as a lens + measured map, NOT a SOTA claim. Heavy "what this
+    is NOT" section.
+Files modified:
+  - README.md — added a "Two tracks (and where they sit in the field)" section +
+    pointer to the landscape map; verified citations only (TTT 2407.04620,
+    TTT-E2E 2512.23675, CAA 2312.06681).
+
+Honest framing throughout: not novel research (steering = CAA reimpl; LoRA/forgetting
+= known continual-learning behavior); 0.5B scale; the value is a complete, honest,
+reproducible pass connecting a personal theory to the frontier — an entry point.
+
+Note: deep-research workflow failed (harness structured-output bug; 105 agents,
+2.4M tokens, no output) — did the web verification directly with WebSearch/WebFetch
+instead. Cited only identifiers verified this session.
+
+Cost: $0 (web search). Total project: ~$0.78.

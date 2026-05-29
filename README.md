@@ -23,6 +23,27 @@ honest scope.
 > The repo keeps that honesty front and center — including a "what is NOT proven"
 > section below.
 
+## Two tracks (and where they sit in the field)
+
+The project explored both ways an LLM could "remember", and measured the trade-offs by hand:
+
+1. **Context-management track** (frozen model, smarter retrieval) — the reranking layer
+   described below. Same family as mem0 / MemGPT / LangMem. Inspectable, but it changes
+   *what is selected*, not the model's *response*; it still re-reads.
+2. **State-based track** (the model's own state changes) — `src/lpsf/substrate/`:
+   - LoRA-from-experience: teaches a fictional fact into the **weights**; recalled with an
+     empty context (0.00 → 1.00), but multiple facts collapse to last-write-wins.
+   - Activation steering (a reimplementation of [CAA](https://arxiv.org/abs/2312.06681)):
+     a persistent vector in the residual stream shifts responses, graded and reversible,
+     with a multi-concept *coexistence window* that weights lack.
+
+**[`docs/lpsf/MEMORY_SUBSTRATES.md`](docs/lpsf/MEMORY_SUBSTRATES.md)** places all of this —
+mem0, MemGPT, ROME, [TTT](https://arxiv.org/abs/2407.04620), CAA — on **one axis** (memory
+in the *input* vs the *state*), with the hands-on measurements, and the project's own lens:
+a substrate-agnostic operator layer tested by one falsifiable question (does the response
+change *without re-reading*, reversibly?). It is a learning + synthesis artifact, not a
+SOTA claim.
+
 ---
 
 ## The mechanism, in one line
