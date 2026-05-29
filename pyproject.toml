@@ -5,7 +5,7 @@ description = "LPSF — a controllable, predictable, reversible, tunable memory-
 readme = "LPSF_PROJECT_SUMMARY.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "daltoggi", email = "daltoggi@users.noreply.github.com" }]
+authors = [{ name = "Dongha Kim", email = "dhkim.justin@gmail.com" }]
 keywords = ["rag", "reranking", "retrieval", "llm", "personalization"]
 dependencies = []
 

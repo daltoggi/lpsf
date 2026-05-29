@@ -45,3 +45,6 @@ data/lora_fact/
 
 # Multi-fact experiment data
 data/multifact/
+
+# Personal outreach material (not published)
+ops/lpsf/OUTREACH_DRAFTS.md

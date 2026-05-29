@@ -1153,3 +1153,34 @@ The steering-composition arc (Phase Q window → S geometry → T quantum hunch 
 -1/(k-1) → V Gram-Schmidt / purity-asymmetry) is now complete and self-consistent,
 with the large-N motif recurring at every turn. This is the intellectual spine of
 the essay/credential.
+
+---
+Time: 2026-05-30 KST
+Checkpoint: Phase W — de-anonymize to real name (credential) + outreach drafts
+
+User decision: real name OK; convert repo content to real name; target Anthropic/
+OpenAI interpretability·memory teams.
+
+Content de-anonymized (people-name/email only; paths & machine names stay redacted):
+  - LICENSE: (c) 2026 Dongha Kim
+  - pyproject.toml: author Dongha Kim <dhkim.justin@gmail.com>
+  - docs/blog/lpsf_journey.md: real byline + signature
+  - README.md: Author section (name + email + "reach out" line)
+  - git local identity → Dongha Kim <dhkim.justin@gmail.com> for FUTURE commits
+GitHub URL stays github.com/daltoggi/lpsf (the account handle = hosting location;
+renaming the account breaks URLs and is the user's separate call). STATUS_LOG
+historical entries left intact as an honest record (they note the daltoggi pseudonym).
+
+Outreach (Phase 2 of "get it read"): ops/lpsf/OUTREACH_DRAFTS.md (GITIGNORED —
+personal, not published). Two peer-tone cold-email drafts for a specific CAA /
+steering author (Draft A, leads with the −1/(k−1) nugget) and a memory/continual-
+learning researcher (Draft B). Discipline: one email, one verifiable nugget, NO
+job ask; reply > open rate; pick a specific person (cite their paper), not a team
+alias; if no reply in ~2 weeks, post the essay publicly and let it circulate.
+
+Honest note to user: a cold email's base rate is low; it clears the bar only via
+short + shows-you-know-their-work + one genuine nugget. The −1/(k−1) / Grover-large-N
+result is that nugget. The artifact is ready; sending is the user's move.
+
+$0. Spam caveat flagged: real gmail now in public LICENSE/pyproject/README — bot
+scraping likely; user accepted this tradeoff.

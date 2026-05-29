@@ -183,6 +183,12 @@ mkdir -p .github/workflows && git mv ci/github-actions-test.yml .github/workflow
 git commit -m "Activate CI" && git push
 ```
 
+## Author
+
+Dongha Kim — dhkim.justin@gmail.com. Reach out if the memory / activation-steering
+direction is something you work on; I'm happy to walk through any result or its
+limits in detail.
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).

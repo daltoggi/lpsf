@@ -1,7 +1,8 @@
 # I tried to give an LLM real memory. I failed precisely — and that was the point.
 
-_An honest field report. The code, every experiment, and every "what is NOT
-proven" note are public: github.com/daltoggi/lpsf_
+_By Dongha Kim (dhkim.justin@gmail.com). An honest field report. The code, every
+experiment, and every "what is NOT proven" note are public:
+github.com/daltoggi/lpsf_
 
 ## The itch
 
@@ -147,4 +148,4 @@ what you don't know — was worth seven months and a dollar.
 
 _Everything here is reproducible from the repo; the experiment reports under
 `ops/lpsf/` include the failures and the "what is NOT proven" sections in full.
-Written under a pseudonym; happy to attach a name in the right context._
+— Dongha Kim, dhkim.justin@gmail.com._
