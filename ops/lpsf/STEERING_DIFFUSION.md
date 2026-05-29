@@ -1,6 +1,6 @@
 # Mean-Centered Steering — testing the Grover-diffusion hunch
 
-_Generated 2026-05-29T14:58:11Z_  
+_Generated 2026-05-29T15:11:56Z_  
 _Qwen2.5-0.5B (frozen), layer 12. CAA-style vectors ([2312.06681](https://arxiv.org/abs/2312.06681)); centering = reflect-about-mean._
 
 ## The hunch
@@ -14,9 +14,13 @@ Grover amplitude amplification amplifies a target by amplifying its **deviation 
 | raw | concept − office (Phase S Pt1) | ocean·music=+0.73, ocean·cooking=+0.75, music·cooking=+0.75 | 0.75 |
 | ortho | concept − other concepts (Phase S Pt3) | ocean·music=-0.58, ocean·cooking=-0.58, music·cooking=-0.33 | 0.58 |
 | centered | raw − shared-mean (the hunch) | ocean·music=-0.58, ocean·cooking=-0.57, music·cooking=-0.33 | 0.58 |
+| gs | Gram-Schmidt orthogonalized (targets cos=0) | ocean·music=-0.00, ocean·cooking=-0.00, music·cooking=+0.00 | 0.00 |
 
-**Partial:** centering gives the smallest |cos| (0.58) — vs raw (+0.75, shared component) and ortho (0.58, anti-correlated). Centering helped but did not clearly win; see caveats.
+**Centering does NOT hit cos≈0** (it matches ortho at 0.58; the math is in 'Why centering overshoots' below). **Gram-Schmidt does** — max|cos| = 0.00 by construction. It is the only method that targets orthogonality directly instead of overshooting to −1/(k−1).
 
+## Result 2 — does it widen the coexistence window?
+
+ocean+music word counts (ocean/music) per per-concept alpha. A 'coexistence point' = both > 0.
 ## Result 2 — does it widen the coexistence window?
 
 ocean+music word counts (ocean/music) per per-concept alpha. A 'coexistence point' = both > 0.
@@ -26,10 +30,13 @@ ocean+music word counts (ocean/music) per per-concept alpha. A 'coexistence poin
 | raw | 0/0 | 0/1 | 2/0 | 9/0 | 5/5 | 1 |
 | ortho | 0/0 | 0/0 | 0/0 | 0/0 | 1/0 | 0 |
 | centered | 0/0 | 0/0 | 0/0 | 0/0 | 1/0 | 0 |
+| gs | 0/0 | 0/3 | 0/5 | 0/7 | 0/5 | 0 |
 
-**Coexistence points: raw=1, ortho=0, centered=0** (out of 5 alphas).
+**Coexistence points: raw=1, ortho=0, centered=0, gs=0** (out of 5 alphas).
 
-**Hunch did not pan out empirically.** Centering improved on raw's cosine but matched ortho (NOT cos≈0), and did NOT widen coexistence — it reproduced the ortho failure. There is a rigorous reason (below).
+**Centering reproduced the ortho failure** — it matched ortho's cosine (NOT cos≈0) and did not widen the window. There is a rigorous reason (next section).
+
+**Gram-Schmidt hit cos≈0 — and STILL failed to balance (0 coexistence points).** music dominated (total 20 words) while ocean vanished (0). The cause is precise: GS is **order-dependent**. The first concept in the order keeps the full shared 'vivid' component, so its unit vector is concept-*weak* (diluted by the shared junk); later concepts get that component projected out, so per unit norm they are concept-*pure* and dominate at equal alpha. **So cos≈0 is necessary but NOT sufficient for balanced composition — the vectors must also be balanced in concept-purity.** Symmetric purity needs symmetric shared-removal (centering), but centering overshoots to −1/(k−1) at small k. Having BOTH cos≈0 AND symmetry requires large k — the large-N theme, one more time. The geometry was necessary, not sufficient; and we know exactly why.
 
 ## Why centering overshoots — and where the Grover analogy breaks
 

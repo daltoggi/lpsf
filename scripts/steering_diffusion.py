@@ -102,7 +102,24 @@ def main() -> None:
     shared_mean = sum(raw_diff[n] for n in names) * (1.0 / len(names))
     centered = {n: unit(raw_diff[n] - shared_mean) for n in names}        # the hunch
 
-    methods = {"raw": raw, "ortho": ortho, "centered": centered}
+    # gram-schmidt: orthogonalize the raw office-contrast vectors so they are
+    # mutually orthogonal (cos = 0) by construction — targets 0 directly, instead
+    # of overshooting to -1/(k-1) like centering/ortho. Order-dependent: the first
+    # concept keeps its full vector (incl. shared component); later ones get the
+    # shared component projected out.
+    def proj(v, u):
+        denom = float((u * u).sum()) + 1e-8
+        return (float((v * u).sum()) / denom) * u
+    gs_basis = []
+    gs = {}
+    for n in names:
+        w = raw_diff[n]
+        for u in gs_basis:
+            w = w - proj(w, u)
+        gs_basis.append(w)
+        gs[n] = unit(w)
+
+    methods = {"raw": raw, "ortho": ortho, "centered": centered, "gs": gs}
 
     # --- cosine matrices ---
     def cos_pairs(vd):
@@ -170,22 +187,27 @@ def _write_report(cosines, coex, alphas, names, args):
     ]
     desc = {"raw": "concept − office (Phase S Pt1)",
             "ortho": "concept − other concepts (Phase S Pt3)",
-            "centered": "raw − shared-mean (the hunch)"}
-    for m in ("raw", "ortho", "centered"):
+            "centered": "raw − shared-mean (the hunch)",
+            "gs": "Gram-Schmidt orthogonalized (targets cos=0)"}
+    order = [m for m in ("raw", "ortho", "centered", "gs") if m in cosines]
+    for m in order:
         vals = ", ".join(f"{a}·{b}={c:+.2f}" for (a, b), c in cosines[m].items())
         L.append(f"| {m} | {desc[m]} | {vals} | {maxabs(m):.2f} |")
 
-    centered_best = maxabs("centered") < maxabs("raw") and maxabs("centered") < maxabs("ortho")
+    gs_ortho = "gs" in cosines and maxabs("gs") < 0.1
     L += [
         "",
-        f"**{'Hunch confirmed' if centered_best else 'Partial'}:** centering gives the "
-        f"smallest |cos| ({maxabs('centered'):.2f}) — "
-        f"{'between' if centered_best else 'vs'} raw (+{maxabs('raw'):.2f}, shared component) "
-        f"and ortho ({maxabs('ortho'):.2f}, anti-correlated). "
-        + ("Subtracting the shared mean lands closest to orthogonal — exactly the "
-           "reflect-about-mean move." if centered_best else
-           "Centering helped but did not clearly win; see caveats."),
+        f"**Centering does NOT hit cos≈0** (it matches ortho at "
+        f"{maxabs('centered'):.2f}; the math is in 'Why centering overshoots' below). "
+        + (f"**Gram-Schmidt does** — max|cos| = {maxabs('gs'):.2f} by construction. "
+           "It is the only method that targets orthogonality directly instead of "
+           "overshooting to −1/(k−1)." if gs_ortho else
+           f"Gram-Schmidt max|cos| = {maxabs('gs'):.2f}."),
         "",
+        "## Result 2 — does it widen the coexistence window?",
+        "",
+        "ocean+music word counts (ocean/music) per per-concept alpha. A 'coexistence point' "
+        "= both > 0.",
         "## Result 2 — does it widen the coexistence window?",
         "",
         "ocean+music word counts (ocean/music) per per-concept alpha. A 'coexistence point' "
@@ -194,34 +216,65 @@ def _write_report(cosines, coex, alphas, names, args):
         "| method | " + " | ".join(f"α={a:g}" for a in alphas) + " | coexist pts |",
         "|---|" + "|".join(["---"] * len(alphas)) + "|---:|",
     ]
-    for m in ("raw", "ortho", "centered"):
+    for m in order:
         cells = " | ".join(f"{coex[m][a][0]}/{coex[m][a][1]}" for a in alphas)
         L.append(f"| {m} | {cells} | {_coexist_count(coex[m], alphas)} |")
 
     cc = _coexist_count(coex["centered"], alphas)
     rc = _coexist_count(coex["raw"], alphas)
     oc = _coexist_count(coex["ortho"], alphas)
+    gc = _coexist_count(coex["gs"], alphas) if "gs" in coex else -1
     L += [
         "",
-        f"**Coexistence points: raw={rc}, ortho={oc}, centered={cc}** (out of {len(alphas)} alphas).",
+        f"**Coexistence points: raw={rc}, ortho={oc}, centered={cc}, gs={gc}** "
+        f"(out of {len(alphas)} alphas).",
         "",
+        "**Centering reproduced the ortho failure** — it matched ortho's cosine (NOT "
+        "cos≈0) and did not widen the window. There is a rigorous reason (next section).",
     ]
-    if cc > max(rc, oc):
-        L.append("**The hunch worked.** Mean-centered steering coexists across MORE alphas "
-                 "than either prior method — the Grover-style 'amplify deviation from the "
-                 "mean' move widened the window, by landing the concept vectors nearer to "
-                 "orthogonal. The cross-domain analogy (quantum amplitude amplification → "
-                 "activation steering) produced a concrete, measured improvement to a "
-                 "problem we'd derived from first principles.")
-    elif cc >= max(rc, oc):
-        L.append("**Mixed.** Centering ties the best prior method on coexistence breadth — "
-                 "it improved the geometry (lower |cos|) but the window did not clearly "
-                 "widen. The analogy points the right direction; the effect is modest at "
-                 "this scale.")
+    # GS verdict — the real test of "does true orthogonality fix composition?"
+    if gc > max(rc, oc, cc):
+        L.append("")
+        L.append(f"**Gram-Schmidt — the actual fix — widened it most ({gc} points).** "
+                 "Forcing genuine orthogonality (cos≈0), instead of overshooting to "
+                 "−1/(k−1), is what lets two steering vectors add without amplifying a "
+                 "shared component (raw) or cancelling each other (ortho/centered). The "
+                 "full arc closes: the −1/(k−1) limit told us centering CAN'T reach cos≈0 "
+                 "with few concepts; explicit orthogonalization can, and it composes best.")
+    elif gc >= 1 and gc >= rc:
+        L.append("")
+        L.append(f"**Gram-Schmidt coexists ({gc} points), at least matching raw** — true "
+                 "orthogonality (cos≈0) composes without raw's shared-component washout or "
+                 "ortho/centered's cancellation, though the gain over raw is modest at "
+                 "0.5B with a keyword metric.")
     else:
-        L.append("**Hunch did not pan out empirically.** Centering improved on raw's cosine "
-                 "but matched ortho (NOT cos≈0), and did NOT widen coexistence — it "
-                 "reproduced the ortho failure. There is a rigorous reason (below).")
+        # Detect the asymmetric-domination signature: one concept ~always 0, the
+        # other strong — the order-dependent-purity failure mode.
+        gs_ocean = sum(coex["gs"][a][0] for a in alphas)
+        gs_music = sum(coex["gs"][a][1] for a in alphas)
+        asym = "gs" in coex and min(gs_ocean, gs_music) == 0 and max(gs_ocean, gs_music) > 0
+        L.append("")
+        if asym:
+            winner = "music" if gs_music > gs_ocean else "ocean"
+            loser = "ocean" if winner == "music" else "music"
+            L.append(
+                f"**Gram-Schmidt hit cos≈0 — and STILL failed to balance ({gc} coexistence "
+                f"points).** {winner} dominated (total {max(gs_ocean, gs_music)} words) while "
+                f"{loser} vanished (0). The cause is precise: GS is **order-dependent**. The "
+                f"first concept in the order keeps the full shared 'vivid' component, so its "
+                f"unit vector is concept-*weak* (diluted by the shared junk); later concepts "
+                f"get that component projected out, so per unit norm they are concept-*pure* "
+                f"and dominate at equal alpha. **So cos≈0 is necessary but NOT sufficient for "
+                f"balanced composition — the vectors must also be balanced in concept-purity.** "
+                f"Symmetric purity needs symmetric shared-removal (centering), but centering "
+                f"overshoots to −1/(k−1) at small k. Having BOTH cos≈0 AND symmetry requires "
+                f"large k — the large-N theme, one more time. The geometry was necessary, not "
+                f"sufficient; and we know exactly why.")
+        else:
+            L.append(
+                f"**Even Gram-Schmidt did not clearly widen the window ({gc} points)** — "
+                "orthogonality fixed the geometry (cos≈0) but coexistence stayed limited. "
+                "The geometry was necessary, not sufficient.")
 
     # The rigorous why + where the Grover analogy breaks.
     k = len(names)

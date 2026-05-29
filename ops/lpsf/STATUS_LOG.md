@@ -1117,3 +1117,39 @@ application / it circulating) is a separate step. The artifact is now strong;
 the channel is the user's call.
 
 $0. Total project cost still ~$0.78.
+
+---
+Time: 2026-05-30 KST
+Checkpoint: Phase V — Gram-Schmidt closes the arc (cos=0 necessary, not sufficient)
+
+The final test of the steering-composition thread (user: "3 → close the arc").
+Added GS orthogonalization as a 4th derivation in steering_diffusion.py.
+
+Four methods head-to-head (ocean+music coexistence, layer 12):
+  method     cos(o,m)   coexistence (ocean/music across alpha 2..10)
+  raw        +0.73      shared-component washout; weak window (a10: 5/5)
+  ortho      -0.58      anti-correlated → cancellation, ~none
+  centered   -0.58      same as ortho (Σ=0 → -1/(k-1)); ~none
+  gs          0.00      TRUE orthogonality — yet STILL failed to balance
+
+GS result: cos=0 achieved by construction, but coexistence asymmetric —
+music dominated (20 words total), ocean vanished (0). Cause (precise):
+Gram-Schmidt is ORDER-DEPENDENT. First concept keeps the full shared "vivid"
+component → its unit vector is concept-weak; later concepts get it projected
+out → concept-pure → dominate at equal alpha.
+
+Arc's final lesson: **cos≈0 is necessary but NOT sufficient for balanced
+multi-concept composition — the vectors must also be balanced in concept-purity.**
+Symmetric purity needs symmetric shared-removal (centering), which overshoots
+to -1/(k-1) at small k. Having BOTH cos≈0 AND symmetry requires large k — the
+large-N theme yet again, now from a third angle. Three derivations, three honest
+failures, each sharpening the requirement.
+
+Files: scripts/steering_diffusion.py (now 4 methods), ops/lpsf/STEERING_DIFFUSION.md.
+docs/blog/lpsf_journey.md: added the GS closing paragraph to the essay.
+$0 on-device.
+
+The steering-composition arc (Phase Q window → S geometry → T quantum hunch /
+-1/(k-1) → V Gram-Schmidt / purity-asymmetry) is now complete and self-consistent,
+with the large-N motif recurring at every turn. This is the intellectual spine of
+the essay/credential.

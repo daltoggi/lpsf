@@ -103,6 +103,19 @@ to the large-N assumption underneath quantum search.
 A good intuition, pinned to three lines of linear algebra, failing in a way
 that explains itself. That's the moment the project earned its keep.
 
+So I did the thing the math pointed to: explicit Gram-Schmidt, which *forces*
+cos ≈ 0 directly instead of overshooting. It worked — geometrically. The three
+concept vectors came out mutually orthogonal (cos = 0.00). And coexistence
+**still failed**: one concept dominated completely, the other vanished. Why?
+Gram-Schmidt is order-dependent — the first concept keeps the full shared
+component (so its normalized vector is concept-*weak*), the later ones get it
+projected out (concept-*pure*, and they dominate at equal strength). **cos ≈ 0
+is necessary but not sufficient for balanced composition; the vectors must also
+be balanced in concept-purity.** Symmetric purity needs symmetric removal
+(centering) — which overshoots to −1/(k−1) at small k. Having both at once
+requires large k. The large-N assumption, one more time, from a third angle.
+Three methods, three honest failures, each one sharpening the requirement.
+
 ## Where this sits, honestly
 
 I did not invent anything. The steering is CAA. The weight-memory and
