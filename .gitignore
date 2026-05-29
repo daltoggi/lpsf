@@ -42,3 +42,6 @@ data/eval_labels.json
 data/lora_fact/
 # ML venv
 .lpsf-ml-venv/
+
+# Multi-fact experiment data
+data/multifact/
