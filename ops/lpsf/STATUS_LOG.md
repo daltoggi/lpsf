@@ -874,3 +874,60 @@ loop with an honest quantitative answer:
   - With full replay buffer: expected near-100% (not yet run; well-studied in literature)
 
 Cost: $0 (on-device, no API calls). Total project: ~$0.78.
+
+---
+Time: 2026-05-29 KST
+Checkpoint: Phase O — multi-fact sequential LoRA (see ops/lpsf/MULTIFACT.md)
+5 fictional facts taught sequentially. Result: last-write-wins — each new fact drops
+all previous facts to 0.00 recall. Single LoRA adapter = single-slot memory. Motivates
+the C-track (LoRAWeightMemory: deepen/weaken/decay numpy proof-of-concept, 7 tests).
+
+---
+Time: 2026-05-29 (later) KST
+Checkpoint: Phase P — REALIGNMENT + activation steering (the founding-doc mechanism)
+
+Re-read the original 2026-05-07 hypothesis (state_space_landscape_plasticity_hypothesis.md).
+It dissolved the A/B/C fork I had posed:
+  - line 320: weight change is explicitly NOT required.
+  - section 6 + line 200: the named mechanism is persistent state that changes node
+    ACTIVATION response ("activation gain, threshold, gate sensitivity").
+So neither track I built was the target: reranking changed the INPUT (too shallow),
+LoRA changed the WEIGHTS (disclaimed, uninspectable, last-write-wins). The target was
+ACTIVATION STEERING all along — and the 8 operators were defined in activation terms.
+User agreed with the realignment.
+
+Built: src/lpsf/substrate/steering.py (SteeringModel) — frozen MLX LLM with a
+persistent inspectable steering vector injected at a residual-stream layer.
+  - Bug found & fixed before any long run: `layer.__call__ = patched` does NOT
+    intercept calls (Python uses type(obj).__call__, not instance). Replaced the
+    layer in the list with a wrapper class whose __call__ delegates + steers.
+  - Vector derivation: contrastive mean-difference (ocean prompts - desert prompts).
+  - Negative control built in from the start: a random vector of equal norm.
+
+Experiment (scripts/steering_experiment.py, frozen Qwen2.5-0.5B, layer 12) dose-response:
+  alpha:          0    2    4    8   12   16
+  derived ocean:  0    0    0    4    6   43     coh 0.88 -> 1.00
+  random  ocean:  0    0    0    0    0    0      coh 0.88 -> 0.66
+
+Three results at once:
+  1. Gradation: derived concept-words rise monotonically with alpha (deepen/weaken).
+  2. Negative control clean: random vector induces the concept at NO alpha.
+  3. Coherence dissociation: derived stays fluent (->1.0), random degrades (->0.66).
+     => steering and degradation are opposite phenomena. Refutes "just degradation."
+
+This is the project's name ("landscape deformation") realized on a real frozen model
+for the first time: same input + persistent non-prompt non-weight state -> different
+response path, graded, reversible, inspectable. The 8 operators map onto steering
+magnitude/sign/decay. The reranking track and LoRA track were approximations on either
+side of this true target.
+
+cross-model 2nd-opinion (codex via call-model.sh) attempted but produced empty output
+(silent fail); proceeded on the experiment's own rigor since the negative control was
+already designed in.
+
+Honest scope: one concept, one layer, 0.5B, keyword metric. Next: multi-concept
+steering + interference (steering analogue of the multi-fact LoRA result), operator
+composition (deepen A while inhibit B). steering.py imports mlx only inside methods so
+the package + 234 tests still pass without mlx (CI safe). MLX deps stay venv-only.
+
+Cost: $0 (on-device). Total project: ~$0.78.

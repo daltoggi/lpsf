@@ -115,6 +115,44 @@ Three-attempt iterate-and-fix experiment (`scripts/forgetting_experiment.py`,
 *selective* plasticity with mixed training, but not *stability-preserving* plasticity
 without it. The mechanism works; production use needs a rehearsal strategy.
 
+## Update (2026-05-29): the founding-doc mechanism, realized
+
+Re-reading the 2026-05-07 founding hypothesis corrected the whole direction.
+Section 6 + line 200 specify the actual mechanism: freeze weights, attach a
+persistent state that changes node **activation** response ("activation gain,
+threshold, gate sensitivity"). Line 320 explicitly says weight change is NOT
+required. So:
+- The reranking track changed the *input* (too shallow — evidence layer).
+- The LoRA track changed the *weights* (explicitly disclaimed; loses inspectability;
+  multi-fact = last-write-wins).
+- **Activation steering** changes the forward-pass *response path* — the named target.
+
+Result (`ops/lpsf/STEERING.md`, frozen Qwen2.5-0.5B, layer 12), dose-response:
+
+| alpha | derived ocean | derived coh | random ocean | random coh |
+|---:|---:|---:|---:|---:|
+| 0  | 0  | 0.88 | 0 | 0.88 |
+| 8  | 4  | 0.91 | 0 | 0.79 |
+| 16 | 43 | 1.00 | 0 | 0.66 |
+
+Three things hold at once:
+1. Gradation — concept words rise monotonically with alpha (= deepen/weaken).
+2. Negative control clean — a random vector of equal norm induces the concept at
+   NO alpha (always 0).
+3. Coherence dissociation — derived stays fluent (→1.0) while random degrades
+   (→0.66). Steering and degradation are opposite phenomena, not the same effect.
+
+The 8 LPSF operators map directly onto steering: deepen=+alpha, weaken=smaller
+alpha, inhibit=-alpha, tilt=value-axis vector, sensitivity=gain, decay=alpha shrink.
+The operators finally act on the model's *response path* (founding-doc intent),
+not on rerank scores (the thin v0.1 realization).
+
+Honest scope: one concept, one layer, 0.5B, a coarse keyword metric. Does not show
+multi-concept steering, interference between steering vectors, larger models, or
+that one added vector equals full "dynamics deformation" vs a strong biased offset.
+Next: multi-concept steering vectors + interference (the steering analogue of the
+multi-fact LoRA experiment), and operator-composition (deepen A while inhibiting B).
+
 ## The real-substrate path (next, if pursued)
 
 To carry this to an actual model you control:

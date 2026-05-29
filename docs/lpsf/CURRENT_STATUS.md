@@ -25,7 +25,20 @@ Selection Equation. The rest is justification.
 - **Reranking track (v0.1, published):** the hosted-API LPSF described in this
   document — a memory-conditioned reranking layer. Honest ceiling: it can never
   write memory into parameters, because you cannot touch a hosted model's weights.
-- **Substrate track (new):** memory that lives in parameters, not in the context.
+- **Activation-steering track (the founding-doc mechanism):** `src/lpsf/substrate/steering.py`.
+  The 2026-05-07 hypothesis (section 6, line 200) specified the actual target:
+  freeze the weights, attach a persistent state that changes node *activation*
+  response. Neither the reranking track (input side) nor the LoRA track (weight
+  side, explicitly disclaimed by the founding doc) is that target — activation
+  steering is. **Demonstrated** on frozen Qwen2.5-0.5B: a contrastive steering
+  vector injected at layer 12 pulls neutral-prompt responses toward a concept,
+  graded by alpha (0→43 ocean words), while a random vector of equal norm induces
+  nothing (0) and only degrades coherence. Persistent, inspectable, reversible,
+  decayable — the LPSF operators map directly onto steering magnitude/sign/decay.
+  This is "landscape deformation on a frozen model" finally realized
+  (`ops/lpsf/STEERING.md`). Scope: one concept, one layer, 0.5B.
+
+- **Substrate track (parametric memory experiments):** memory that lives in parameters, not in the context.
   - `src/lpsf/substrate/` — a numpy mechanism demo that passes the falsifiable
     "empty-context recall" test and quantifies the fixed-dimension capacity
     ceiling (dense ≪ sparse ≪ expandable).
