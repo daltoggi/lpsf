@@ -931,3 +931,35 @@ composition (deepen A while inhibit B). steering.py imports mlx only inside meth
 the package + 234 tests still pass without mlx (CI safe). MLX deps stay venv-only.
 
 Cost: $0 (on-device). Total project: ~$0.78.
+
+---
+Time: 2026-05-29 (later) KST
+Checkpoint: Phase Q — multi-concept steering: coexistence vs interference
+
+The steering analogue of the multi-fact LoRA experiment. LoRA multi-fact =
+last-write-wins (no coexistence at any setting). Question: do steering vectors,
+which ADD in the residual stream, coexist where weights could not?
+
+Single concepts steer cleanly (ocean=18, music=17, cooking=6; each raises only
+its own words). But the equal-alpha SUM at alpha=10 produced MUTUAL WASHOUT —
+ocean=0 AND music=0, still fluent (coh 0.81). Not last-write-wins (one survives);
+a distinct third mode (both-lose): adding two strong vectors points off-manifold
+to a direction that is neither concept.
+
+Iterate-and-fix: ran a pair alpha-sweep to distinguish overshoot vs fundamental
+interference:
+  per-concept alpha:  2    3    4    5    6    8
+  ocean:              0    2    3    5    7    3
+  music:              1    1    4    2    0    1
+Coexistence IS reachable in a moderate window (alpha 3-5; best alpha~4: ocean=3,
+music=4 balanced). High alpha washes out; alpha~6 lets ocean dominate music.
+
+Verdict (honest): activation steering CAN compose two concepts, but only in a
+tuned moderate-alpha window — not free, scale-sensitive, degrades when stacked
+strong. This still beats LoRA multi-fact, which had NO coexistence regime at any
+setting. Concrete evidence that an additive activation substrate is a better
+multi-memory substrate than weight editing — with the honest caveat that
+composition needs scale control, not naive full-strength stacking.
+
+Files: scripts/multiconcept_steering.py, ops/lpsf/MULTICONCEPT_STEERING.md.
+Cost: $0 (on-device). pytest 234 passed (no test changes; experiment is venv-only).
