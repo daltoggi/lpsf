@@ -1184,3 +1184,33 @@ result is that nugget. The artifact is ready; sending is the user's move.
 
 $0. Spam caveat flagged: real gmail now in public LICENSE/pyproject/README — bot
 scraping likely; user accepted this tradeoff.
+
+---
+Time: 2026-05-30 KST
+Checkpoint: Phase X — public posting kit + outreach refinement + handoff
+
+User: "가/나/다 다 하면 되지, 보내는 건 내가 할게." Sending is the user's
+(irreversible external action; I prepare, they press).
+
+(가) docs/blog/POSTING_KIT.md (PUBLIC): channel-specific framing in EV order —
+  LessWrong/Alignment Forum header (TL;DR + epistemic status) wrapping the essay,
+  a 5-tweet X thread (one image, one tag, no bait), and a posting checklist.
+  LW-first rationale: Rimsky/Turner/Nanda's circle reads it; CAA was written up
+  there. X cross-posts after, linking the LW URL.
+
+(나) OUTREACH_DRAFTS.md refined: Draft A now explicitly concedes the −1/(k−1)
+  identity is trivial and asks only whether the *practical* steering-composition
+  consequence is folklore — protects credibility with a sharp reader. Same
+  humility mirrored into the X thread (tweet 5).
+
+(다) Handoff = the user-only action list (below in chat): post LW → cross-post X
+  with one image (plot_frontier.py) → only then email Rimsky/Zou (Draft A) linking
+  the public post. Do NOT email CEOs; do NOT mass-send.
+
+Target list (gitignored OUTREACH_DRAFTS.md): Tier 1 Rimsky(Anthropic, CAA 1st
+author — best target)/Zou(CMU)/Turner(DeepMind)/Sun(TTT); Tier 2 Nanda (post
+publicly, don't DM) + Karpathy (amplifier long-shot, X only); Tier 3 DO-NOT
+Jensen/CEOs/team-aliases.
+
+Still pending user decisions: (1) GitHub account rename daltoggi→real (breaks
+URLs; optional); (2) public gmail spam tradeoff (accepted). $0.
