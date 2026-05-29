@@ -1081,3 +1081,39 @@ Meta: a good cross-domain intuition that failed cleanly and taught the structure
 — the most instructive kind of result. The full arc (Phase Q window → S geometry
 → T quantum hunch → rigorous -1/(k-1) limit) is the deepened understanding the user
 asked for.
+
+---
+Time: 2026-05-30 KST
+Checkpoint: Phase U — narrative essay (full arc) + README front-door rewrite
+
+Goal: make the project READABLE as a credential for a big-lab/research audience.
+User chose: audience = big AI companies/labs (field-entry credential), form =
+narrative essay (blog/README-top).
+
+Problem: the prior journey draft (Phase H2) covered only the reranking track —
+the strongest material (substrate → steering → quantum hunch → -1/(k-1)) was
+missing, and the README's first sentence led with the weakest (reranking) framing.
+
+Done:
+  - docs/blog/lpsf_journey.md (replaces the stale 2026-05-28 draft): full-arc
+    English essay — the itch (re-reading/tokens) → the reframe (input vs state) →
+    measured results (LoRA 1-fact 0->1.00, multi-fact last-write-wins, forgetting
+    79%, steering = CAA reproduced with dose-response + negative control +
+    coherence dissociation, multi-concept coexistence window) → the intellectual
+    peak (Grover-diffusion hunch refuted by Σ=0 → -1/(k-1) = -0.50 measured, and
+    why the quantum analogy breaks on N) → honest scope (no novelty, 0.5B,
+    reproductions; the value is the way of thinking). Anonymous (daltoggi), with
+    "happy to attach a name in the right context."
+  - README.md: top rewritten to lead with the full honest story + essay/map links,
+    instead of the reranking-track description. Reranking demoted to its section.
+  - Removed docs/blog/2026-05-28_lpsf_journey.md (stale).
+
+Fact-checked essay numbers against the reports (LoRA 1.00, forgetting 79%,
+steering 43, diffusion -0.50) — all match. Identity scan CLEAN.
+
+Honest note recorded for the user: a great essay is necessary but not sufficient
+for a big-lab audience to actually READ it — distribution (targeted outreach /
+application / it circulating) is a separate step. The artifact is now strong;
+the channel is the user's call.
+
+$0. Total project cost still ~$0.78.

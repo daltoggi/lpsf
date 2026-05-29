@@ -6,22 +6,22 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![status](https://img.shields.io/badge/status-research%20v0.1-yellow)
 
-**A memory-conditioned reranking layer over RAG retrieval.** LPSF accumulates
-persistent prior weights on retrieval candidates from real usage, and uses them
-to deterministically change which candidate wins selection. The more you pick a
-result, the higher it ranks next time — and that preference persists, decays,
-and can be reversed.
+**An honest, hands-on attempt to give an LLM real memory — and a precise map of
+why it's hard.** LLMs re-read instead of remembering; this repo asks whether
+experience can change the model's *state* (not just its input), measures three
+substrates for doing so on a frozen 0.5B model for ~$1, and states every limit
+out loud — including a wild intuition that failed for a reason worth the project.
 
-It does **not** modify LLM internal reasoning, token sampling, or generation.
-That distinction is the whole point: every behavior here is an explicit,
-auditable score, not a black box. See
-[`docs/lpsf/CURRENT_STATUS.md`](docs/lpsf/CURRENT_STATUS.md) for the canonical
-honest scope.
+**→ Start with the essay: [`docs/blog/lpsf_journey.md`](docs/blog/lpsf_journey.md)**
+("I tried to give an LLM real memory. I failed precisely — and that was the point.")
+Then the map: [`docs/lpsf/MEMORY_SUBSTRATES.md`](docs/lpsf/MEMORY_SUBSTRATES.md).
 
-> This started as a grand "make the LLM's reasoning landscape plastic" idea. An
-> external audit reframed it into something smaller, sharper, and *defensible*.
-> The repo keeps that honesty front and center — including a "what is NOT proven"
-> section below.
+It does **not** invent new methods or modify pretraining. The activation steering
+reproduces CAA; the weight-memory and forgetting reproduce known continual-learning
+behavior. The value is a complete, honest, reproducible pass that places mem0 /
+MemGPT / ROME / TTT / CAA on one axis (memory in the *input* vs the *state*), with
+measured trade-offs and negative controls. Not SOTA, not a product — a way of
+thinking, with the receipts. Honest scope: [`docs/lpsf/CURRENT_STATUS.md`](docs/lpsf/CURRENT_STATUS.md).
 
 ## Two tracks (and where they sit in the field)
 
