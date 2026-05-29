@@ -1043,3 +1043,41 @@ weren't in the ortho-cosine dict (KeyError); restricted to concept-concept pairs
 Files: scripts/steering_geometry.py, ops/lpsf/STEERING_GEOMETRY.md.
 docs/lpsf/MEMORY_SUBSTRATES.md updated with the "additivity is geometrically
 delicate" limitation. $0 on-device. Faithful to CAA (arXiv 2312.06681).
+
+---
+Time: 2026-05-29 (later) KST
+Checkpoint: Phase T — Grover-diffusion hunch (user's quantum intuition), tested
+
+User's idea: Grover amplitude amplification (sign-flip + reflect-about-mean)
+amplifies a target by amplifying its DEVIATION FROM THE MEAN. Apply to steering:
+mean-center the concept vectors (v_i - v̄) to reach the cos≈0 sweet spot Phase S
+said additive composition needs.
+
+Tested 3 derivations head-to-head (scripts/steering_diffusion.py, layer 12):
+  cosines:  raw +0.73 | ortho -0.58 | centered -0.58   (centered ≠ 0!)
+  coexist:  raw has a window (a10: 5/5); ortho & centered ~0 (both fail)
+
+REFUTED — with a rigorous, satisfying reason:
+  Mean-centering k vectors imposes Σ(v_i - v̄)=0. For unit vectors summing to
+  zero, average pairwise cosine is forced to exactly -1/(k-1). k=3 → -0.50.
+  Measured centered average = -0.50 (exact match). So you CANNOT center your way
+  to cos≈0 with few concepts — Σ=0 overshoots past orthogonal into anti-correlation.
+  (Also explains why ortho==centered: contrasting vs the others' mean is the same
+  move up to scale.)
+
+Where the quantum analogy breaks — precisely on N: Grover's diffusion is benign
+ONLY because N is huge (Σ=0 spread over N → ~-1/N ≈ 0 per non-target). Grover needs
+large N not just for the √N speedup but for diffusion to be non-destructive. At k=3
+the identical operation forces -0.5 and destroys coexistence. The hunch was
+structurally right and fails for a reason that traces back to the large-N assumption.
+
+The actual fix it points to: explicit orthogonalization (Gram-Schmidt) targeting
+cos=0, or many more concepts so -1/(k-1) → 0. (Next candidate experiment.)
+
+Files: scripts/steering_diffusion.py, ops/lpsf/STEERING_DIFFUSION.md.
+docs/lpsf/MEMORY_SUBSTRATES.md updated. $0 on-device.
+
+Meta: a good cross-domain intuition that failed cleanly and taught the structure
+— the most instructive kind of result. The full arc (Phase Q window → S geometry
+→ T quantum hunch → rigorous -1/(k-1) limit) is the deepened understanding the user
+asked for.

@@ -144,6 +144,18 @@ sum cancels them). Neither hit ≈0. So "operators compose by adding vectors" is
 *only* in a geometric sweet spot the naive method misses — a concrete limitation,
 and exactly why the literature builds steering vectors more carefully.
 
+We then tested a cross-domain hunch (`STEERING_DIFFUSION.md`): Grover's amplitude
+amplification amplifies a target by amplifying its **deviation from the mean**, so
+mean-center the concept vectors (`vᵢ − v̄`) to reach cos≈0. It **failed, for a
+rigorous reason**: centering k vectors imposes Σ=0, which forces the average
+pairwise cosine to exactly **−1/(k−1)** (= −0.50 for k=3, matched to the measured
+−0.50). You cannot center your way to orthogonality with few concepts — you overshoot
+into anti-correlation. And that is precisely where the quantum analogy breaks: Grover's
+diffusion is benign only because N is huge (the Σ=0 constraint spreads to ~−1/N ≈ 0
+per state); at k=3 the same move is destructive. The honest fix it points to is
+explicit orthogonalization (Gram-Schmidt), not mean-subtraction. A clean example of
+a good intuition failing for a reason that *teaches the structure*.
+
 **This is a lens and a measured map, not a SOTA claim.** Its value is for someone
 entering the area: a single honest frame that places mem0, MemGPT, ROME, TTT and
 CAA on one axis, with hands-on measurements of the trade-offs.
